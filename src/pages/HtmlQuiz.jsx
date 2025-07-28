@@ -1,9 +1,9 @@
-import './App.css'
+import '../App.css'
 import { useState } from 'react'
-import HtmlData from './data/HtmlData.js'
-import {QuestionCards, Result} from './components/questionCard.jsx' 
+import questions from '../data/HtmlData.js'
+import {QuestionCards, Result} from '../components/QuestionCard.jsx' 
 
-function App() {
+export const HtmlQuiz = () => {
 
 
 const [index, setIndex] = useState(0);
@@ -16,19 +16,17 @@ const handleStart = () => {
 }
 
 const handleAnswer = (choice) => {
-  const correct = HtmlData[index].answer;
+  const correct = questions[index].answer;
   if(choice === correct) {
     setScore(score + 1); //increase (1.1)
   }
   
   const nextIndex = index + 1; //increase (1.2)
-  if(nextIndex < HtmlData.length) {
+  if(nextIndex < questions.length) {
     setIndex(nextIndex);
   } else {
     setFinished(true);
   }
-
-  
 }
 
 const handleRestart = () => {
@@ -50,14 +48,14 @@ const handleRestart = () => {
             </header>
         {start && !finished && (
           <QuestionCards 
-           question={HtmlData[index]} OnAnswer={handleAnswer}/>
+           question={questions[index]} OnAnswer={handleAnswer}/>
         )}
         {finished && (
-          <Result score={score} total={HtmlData.length} onRestart={handleRestart} />
+          <Result score={score} total={questions.length} onRestart={handleRestart} />
         )}
 
     </div>
   )
 }
 
-export default App
+export default HtmlQuiz;
