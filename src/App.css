@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+body {
+  background-color: #FFFFFF;
+}
+
+#root {
+  padding: 2rem;
+  
+}
+
+.custom-bg {
+  background-color: #ABC2E3;
+}
