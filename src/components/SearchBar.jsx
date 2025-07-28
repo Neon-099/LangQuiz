@@ -1,4 +1,3 @@
-import React from "react";
 import vector from '../assets/vector.jpg'
 export const Search = ( {searchTerm, setSearchTerm} ) => {
     

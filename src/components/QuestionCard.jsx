@@ -1,4 +1,3 @@
-import React from 'react';
 
 export const QuestionCards = ( {question, OnAnswer} ) => {
 
@@ -8,11 +7,11 @@ export const QuestionCards = ( {question, OnAnswer} ) => {
             
             <h1 className='text-xl font-semibold'>{question.question}</h1>
             <ul className='mt-4 space-y-2'>
-                {question.options.map((option) => (
+                {question.options.map((option, index) => (
                     <li key={option}>
                         <button 
                          className='w-full bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded'
-                         onClick={() => OnAnswer(option)}>
+                         onClick={() => OnAnswer(index)}>
                             {option}
                          </button>
                     </li>
