@@ -1,5 +1,5 @@
 import '../App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import questions from '../data/HtmlData.js'
 import {QuestionCards, Result} from '../components/QuestionCard.jsx' 
 
@@ -35,23 +35,31 @@ const handleRestart = () => {
     setStart(false);
     setFinished(false);
   }
+
+  //TO AUTO START WHEN THE PAGE RELOADS
+  useEffect(() => {  
+      handleStart();
+  })
+
   return (
     <div className='max-w-xl mx-auto p-4'>
         <header className="text-center mt-10">
                 <h1 className="text-2xl font-bold mb-4">Welcome!</h1>
-                {!start && (
-                <button 
-                 onClick={handleStart}>
-                    Start Quiz
-                </button>
-                )}
+                
             </header>
         {start && !finished && (
           <QuestionCards 
-           question={questions[index]} OnAnswer={handleAnswer}/>
+           question={questions[index]}
+           OnAnswer={handleAnswer}
+           onQuit={() => setFinished(true)}
+           total={questions.length}/>
         )}
         {finished && (
-          <Result score={score} total={questions.length} onRestart={handleRestart} />
+          <Result 
+            score={score}
+            total={questions.length}
+            onRestart={handleRestart}
+             />
         )}
 
     </div>
