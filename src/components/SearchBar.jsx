@@ -1,4 +1,4 @@
-import vector from '../assets/vector.jpg'
+import vector from '../assets/vector.png'
 export const Search = ( {searchTerm, setSearchTerm} ) => {
     
     return (
