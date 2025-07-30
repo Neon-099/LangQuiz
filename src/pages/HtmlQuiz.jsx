@@ -42,11 +42,10 @@ const handleRestart = () => {
   })
 
   return (
-    <div className='max-w-xl mx-auto p-4'>
-        <header className="text-center mt-10">
-                <h1 className="text-2xl font-bold mb-4">Welcome!</h1>
-                
-            </header>
+    <div className='flex flex-col justify-center items-center h-200 '>
+      <header className="text-center mt-10">
+        <h1 className="text-2xl font-bold mb-4">Welcome!</h1>
+      </header>
         {start && !finished && (
           <QuestionCards 
            question={questions[index]}

@@ -14,19 +14,18 @@ export const Home = () => {
     )
   
     return (
-        <div className='m-h-screen p-4'>
-            <header className='flex flex-col justify-center items-center w-full max-w-5xl'>
-
+        <div className='flex flex-col justify-center items-center border min-h-screen'>
+            <div className='flex justify-center items-center'>
                 <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-                {!searchTerm  &&(
-                    
+             </div>    
+             {!searchTerm  &&(
                     <CategorySection />
                 )}
                 
-            </header>
+           
         
-            <main>
-                <h3 className='pr-40 text-2xl py-12 '>Recent Activity</h3>
+            <main className='flex flex-col space-y-12'>
+                <h3 className='text-start text-2xl py-12 '>Recent Activity</h3>
                 {filteredCards.length > 0 ? (
                     filteredCards.map((card) => (
                        
