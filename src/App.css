@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
-body {
-  background-color: #FFFFFF;
-}
 
-#root {
-  padding: 2rem;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   
-}
-
-.custom-bg {
-  background-color: #ABC2E3;
-}
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.6;
+  }
