@@ -9,7 +9,8 @@ export const questions = [
           "Computer Style Sheets",
           "Colorful Style Sheets"
       ],
-  answer: 1
+    difficulty: 'easy',
+    answer: 1
 }, {
       id: 1,
       question: "Which JavaScript method removes an element of an array?",
@@ -19,7 +20,8 @@ export const questions = [
           "shift()",
           "unshift()"
       ],
-  answer: 0
+    difficulty: 'medium',
+    answer: 0
 }]  
 
 export default questions;

@@ -1,93 +1,102 @@
 import '../App.css'
-import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import questions from '../data/HtmlData.js'
 import {QuestionCards, Result} from '../components/QuestionCard.jsx' 
+import DifficultyCard from '../components/ui/Difficulty.jsx'
+
 
 export const HtmlQuiz = () => {
 
 const [timeCount, setTimeCount] = useState(10);
+const [question, setQuestion] = useState([]); //store here the quiz sections
 
 const [index, setIndex] = useState(0);
 const [score, setScore] = useState(0);
 const [start, setStart] = useState(false);
 const [finished, setFinished] = useState(false);
 
-const handleStart = () => {
-  setStart(true);
-}
+const baseTime = {
+  easy: 15, 
+  medium: 10,
+  hard: 5,
+};
 
+//AUTO START WHEN PAGE LOAD (only run once(w/o deps))
+useEffect(() => {
+  const firstQuestion = questions[0];
+  const time = baseTime[firstQuestion.difficulty] || 10;  
+
+  setQuestion(questions);
+  setStart(true);
+  setTimeCount(time); 
+}, []); 
+
+//TIMER COUNTDOWN
+useEffect(() => {
+  if(!start || finished || timeCount === 0) return;
+
+  const timer = setInterval(() => {
+    setTimeCount((prev) => prev - 1)
+  }, 1000);
+
+  return () => clearInterval(timer); //TO CLEANup the timer
+}, [timeCount, start, finished])
+
+
+//HANDLE WHEN TIME IS UP 
+useEffect(() => {
+  if(timeCount === 0 && start && !finished) {
+    handleTimesUp();
+  }
+}, [timeCount]); //to updates the time count every call
+
+
+//HANDLE NEXT QUESTION
 const handleNextQuestion = (choice) => {
-  const correct = questions[index].answer;
+  const correct = question[index].answer;
   if(choice === correct) {
-    setScore(score + 1); //increase (1.1)
+    setScore((prev) => prev + 1); //state usage when want to increase (1.1)
   }
   
-  const nextIndex = index + 1; //increase (1.2)
-  if(nextIndex < questions.length) {
+  const nextIndex = index + 1; //increment the index each call so that it will be the basis if which question current in
+  if(nextIndex < question.length) {
     setIndex(nextIndex);
-    setTimeCount(10)
+
+    const nextQuestion = question[nextIndex]; //GET THE QUESTION BASED ON THE INDEX 
+    const newTime = baseTime[nextQuestion.difficulty] || 10; //like act (COMPARISON TO KNOW WHAT KIND OF TIME TO USE THAT WILL BASED ON DIFFICULTY) 
+    setTimeCount(newTime); //UPDATE THE TIMER BASED ON THE DIFFICULTY
   } else {
     setFinished(true);
     setTimeCount(0)
   }
-
 }
 
-const handleRestart = () => {
+//HANDLE WHEN TIME IS UP
+const handleTimesUp = () => {
+  setFinished(true);
+}
+
+  const handleRestart = () => {
+    const firstQuestion = question[0]; //reset the index count
+    const time = baseTime[firstQuestion.difficulty] || 10; //the resetted index count is 0
+
     setIndex(0);
     setScore(0);
-    setStart(false);
     setFinished(false);
-    setTimeCount(10);
-  }
+    setStart(true);
+    setTimeCount(time); //more likely this will be in reset / 0
+  };
 
-  //TO AUTO START WHEN THE PAGE RELOADS
-  useEffect(() => {  
-      handleStart();
-  })
 
-  //TO START THE TIMER
-  useEffect(() => {
-    if(timeCount === 0) {
-      //TIMES UP: handle next question
-      handleTimesUp();
-      return;
-    }
-
-    const timer =  setInterval(() => {
-      setTimeCount((prev) => prev - 1);
-    }, 1000);
-
-    return () => clearInterval(timer);//to clean up after executing
-  }, [timeCount]); //to call it every page reloads
-
-  //HANDLE if it is last question
-  const isLastQuestion = setIndex === questions.length - 1;
-
-  const handleTimesUp = () => {
-
-    if(isLastQuestion) {
-      setFinished(true);
-      return;
-    }
-    else {
-      handleNextQuestion();
-    }
-  }
-
-  const goBackHome = () => {
-    <Link to="/quiz/home"></Link>
-  }
 
   return (
     <div className='flex flex-col justify-center items-center h-200 '>
       <header className="text-center mt-10">
         <h1 className="text-2xl font-bold mb-4">Welcome!</h1>
       </header>
-      <div>
-        Timer {timeCount}s
-      </div>
+
+        {start && !finished && <div>Timer: {timeCount}</div>}
+
         {start && !finished && (
           <QuestionCards 
            question={questions[index]}
@@ -100,7 +109,6 @@ const handleRestart = () => {
             score={score}
             total={questions.length}
             onRestart={handleRestart}
-            onHomeBack={handleRestart}
              />
         )}
 
