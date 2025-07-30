@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const SearchCard = ( {link, title, image, total} ) => {
     return (
         <Link to={link} >
-            <div className="flex  items-start  my-3 bg-white shadow-md rounded p-4 hover:shadow-lg transition">
+            <div className="flex sticky top-1 items-start  my-3 bg-white shadow-md rounded p-4 hover:shadow-lg transition">
                 <img
                  className='border-none bg-gray-300 rounded-md object-cover px-6 py-3 w-24  ' 
                  src={image} alt={title} />
