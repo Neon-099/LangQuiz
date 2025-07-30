@@ -7,10 +7,9 @@ import jsReact from '../assets/jsReact.png'
 
 export const CategorySection = () => {
     return (
-        <>
-            <h2 className='pr-125 text-black text-3xl my-8'>Categories</h2>
-            
-            <div className='grid grid-cols-5 gap-40 '>
+        <div className="flex flex-col items-center w-full">
+            <h2 className='text-black text-3xl my-8'>Categories</h2>
+            <div className='grid grid-cols-5 gap-8 justify-items-center w-auto'>
                 <div className=" flex justify-center items-center custom-bg border-none rounded-2xl h-20 w-30">
                     <img
                         className=' w-16 h-16 ' 
@@ -37,7 +36,7 @@ export const CategorySection = () => {
                         src={python} alt="python" />
                 </div>
             </div>  
-        </>
+        </div>
     )
 } 
 

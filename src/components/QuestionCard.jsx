@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export const QuestionCards = ( {question, OnAnswer, onQuit, handleStart, total} ) => {
+export const QuestionCards = ( {question, OnAnswer, onQuit, total} ) => {
 
     
     return (
