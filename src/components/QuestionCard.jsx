@@ -29,7 +29,7 @@ export const QuestionCards = ( {question, OnAnswer, onQuit, total} ) => {
 }
 
 
-export const Result = ({score, total, onRestart}) => {
+export const Result = ({score, total, onRestart, onHomeBack}) => {
     return (
         <>
         
@@ -45,7 +45,7 @@ export const Result = ({score, total, onRestart}) => {
 
             <Link to="/">
                 <button
-                    onClick={onRestart}
+                    onClick={onHomeBack}
                     className="py-3 bg-gray-500 text-white px-6 mt-4 rounded">
                     Back to home
                 </button> 
