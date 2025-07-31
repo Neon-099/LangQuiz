@@ -8,7 +8,7 @@
     width: 100%;
   }
   
-  .header-container {
+  .headerContainer {
     position: relative;
     display: flex;
     align-items: center;
@@ -35,7 +35,7 @@
     margin-bottom: 0;
   }
   
-  .main-nav ul {
+  .mainNav ul {
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -43,18 +43,18 @@
     margin: 0;
   }
   
-  .main-nav a {
+  .mainNav a {
     font-weight: 500;
     color: #4a5568;
     transition: color 0.3s ease;
     text-decoration: none;
   }
   
-  .main-nav a:hover {
+  .mainNav a:hover {
     color: #3182ce;
   }
   
-  .auth-buttons {
+  .authButtons {
     display: flex;
     gap: 1rem;
   }
@@ -69,7 +69,7 @@
 
 
 
-.landing-main {
+.landingMain {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -80,7 +80,7 @@
   min-height: 60vh;
 }
 
-.hero-content {
+.heroContent {
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@
   gap: 1.5rem;
 }
 
-.hero-content h1 {
+.heroContent h1 {
   font-size: 2.8rem;
   font-weight: 800;
   color: #22223b;
@@ -96,14 +96,14 @@
   line-height: 1.1;
 }
 
-.hero-content p {
+.heroContent p {
   font-size: 1.2rem;
   color: #4a4e69;
   margin: 0;
   max-width: 500px;
 }
 
-.cta-btn {
+.ctaBtn {
   margin-top: 1.5rem;
   padding: 0.9rem 2.0rem;
   background: #3a86ff;
@@ -117,19 +117,19 @@
   transition: background 0.2s, box-shadow 0.2s;
 }
 
-.cta-btn:hover {
+.ctaBtn:hover {
   background: #265d97;
   box-shadow: 0 4px 16px rgba(58,134,255,0.15);
 }
 
-.hero-image {
+.heroImage {
   flex: 1 1 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.hero-image img {
+.heroImage img {
   width: 100%;
   max-width: 420px;
   height: auto;
@@ -139,13 +139,13 @@
   object-fit: contain;
 }
 
-.about-section {
+.aboutSection {
   background: #f1f3f8;
   padding: 3rem 0;
   width: 100%;
 }
 
-.about-container {
+.aboutContainer {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -155,20 +155,20 @@
   background: #f8fafc;
 }
 
-.about-container h2 {
+.aboutContainer h2 {
   font-size: 2.2rem;
   color: #22223b;
   margin-bottom: 1rem;
   font-weight: 700;
 }
 
-.about-container p {
+.aboutContainer p {
   font-size: 1.15rem;
   color: #4a4e69;
   margin-bottom: 1.5rem;
 }
 
-.about-container ul {
+.aboutContainer ul {
   list-style: disc inside;
   color: #22223b;
   font-size: 1.05rem;
@@ -178,7 +178,7 @@
   padding-left: 1.2rem;
 }
 
-.about-container ul li {
+.aboutContainer ul li {
   margin-bottom: 0.5rem;
 }
 
@@ -193,7 +193,7 @@
   left: 0;
 }
 
-.footer-container {
+.footerContainer {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -203,19 +203,19 @@
   gap: 0.7rem;
 }
 
-.footer-container nav {
+.footerContainer nav {
   display: flex;
   gap: 1.5rem;
 }
 
-.footer-container a {
+.footerContainer a {
   color: #a0c4ff;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.2s;
 }
 
-.footer-container a:hover {
+.footerContainer a:hover {
   color: #fff;
 }
 
@@ -227,11 +227,11 @@
     gap: 2rem;
     padding: 1.5rem;
   }
-  .hero-image {
+  .heroImage {
     width: 100%;
     justify-content: flex-start;
   }
-  .hero-image img {
+  .heroImage img {
     max-width: 100%;
   }
 }

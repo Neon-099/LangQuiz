@@ -1,6 +1,6 @@
 import logs from '../assets/logs.png'
 import {Link } from 'react-router-dom'
-import '../styles/LandingPage.css'
+import styles from '../styles/LandingPage.module.css'
 
 export const Landing = () => {
   
