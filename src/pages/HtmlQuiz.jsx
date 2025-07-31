@@ -1,16 +1,17 @@
 import '../App.css'
-import { useQuiz } from '../hooks/useQuiz.js'
-import questions from '../utils/HtmlData.js'
+import { useQuiz } from '../hooks/useQuiz.js';
+import {questions} from '../data/HtmlData.js';
 import Header from '../components/layout/Header.jsx'
 import {QuestionCards, Result} from '../components/QuestionCard.jsx' 
 import {ReviewQuiz} from '../components/ReviewQuiz.jsx';
+import {ScoreDisplay} from '../components/ScoreDisplay.jsx'
 
 export const HtmlQuiz = () => {
 
   const {
     //STATE
     index,
-    score,
+    currentScore,
     start,
     finished,
     timeCount,
@@ -30,7 +31,6 @@ export const HtmlQuiz = () => {
     showTimer,
     showProgress
   } = useQuiz(questions)
-
 
   return (
     <div className='min-h-screen bg-gray-50'>
@@ -54,18 +54,20 @@ export const HtmlQuiz = () => {
         )}
         {finished && (
           <Result 
-            score={score}
+            score={currentScore}
             total={totalQuestions}
             onRestart={handleRestart}
             onReview={handleReviewQuestion}
              />
         )}
-        {seeReview && (
-          <ReviewQuiz 
-            answers={answers} 
-            onReset={handleRestart}/>
+        {finished && (
+          <ScoreDisplay />
         )}
 
+        {seeReview && (
+          <ReviewQuiz 
+            answers={answers} />
+        )}
       </div>
     </div>
   )
