@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
-
-
-* {
-    margin: 0;
-    padding: 0;
+/* Simple reset that doesn't interfere with Tailwind */
+html {
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
     font-family: 'Inter', sans-serif;
     color: #333;
     background-color: #fff;
     line-height: 1.6;
-  }
+    margin: 0;
+    padding: 0;
+}

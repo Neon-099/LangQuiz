@@ -2,18 +2,18 @@ import vector from '../assets/vector.png'
 export const Search = ( {searchTerm, setSearchTerm} ) => {
     
     return (
-        <div className="relative flex justify-center w-full max-w-md mt-12">
+        <div className="relative flex justify-center w-full max-w-lg">
             <input
-                className="w-full bg-white text-black border border-gray-300 pl-10 pr-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full bg-white text-gray-800 border-0 pl-12 pr-12 py-4 rounded-full focus:outline-none focus:ring-4 focus:ring-blue-200 shadow-lg text-lg placeholder-gray-400"
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search..."
+                placeholder="Search for programming languages..."
             />
             <img
                 src={vector}
                 alt=""
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 h-6 w-6 pointer-events-none"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 pointer-events-none opacity-60"
             />
         </div>
     )
