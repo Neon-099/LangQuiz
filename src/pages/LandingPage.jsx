@@ -7,30 +7,29 @@ export const Landing = () => {
   return (
     <>
     {/* Full-width header with centered content inside */}
-      <header className="header">
-        <div className="header-container">
+      <header className={styles.header}>
+        <div className={styles.headerContainer}>
           {/* Left: Logo + Title */}
-          <div className="logo">
+          <div className={styles.logo}>
             <img src={logs} alt="Logo" className="h-6 w-6" />
             <h2>Lang Quiz</h2>
           </div>
 
           {/* Right: Navigation */}
-          <nav className="main-nav">
+          <nav className={styles.mainNav}>
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><a href="#about">About</a></li>
                <button className='bg-gray-300 hover:bg-gray-500 rounded-4xl'>Sign Up</button>
                <button className='blue bg-blue-400 hover:bg-blue-500 rounded-4xl text-white'>Login </button>
             </ul>
-              
           </nav>
         </div>
       </header>
 
       <main >
-        <div className="landing-main">
-          <div className="hero-content">
+        <div className={styles.landingMain}>
+          <div className={styles.heroContent}>
           <h1>Build a professional resume in minutes</h1>
           <p>
             Create, customize, and download a stunning resume that showcases your skills and experience.
@@ -40,7 +39,7 @@ export const Landing = () => {
             <button className='bg-blue-400 hover:bg-blue-500 rounded-4xl text-white'>Get Started for Free</button>
           </Link>
         </div>
-        <div className="hero-image">
+        <div className={styles.heroImage}>
           {/* Replace with your own image or illustration */}
           <img src="https://media.istockphoto.com/id/1457290530/photo/asian-teenager-students-doing-robot-arm-and-robotic-cars-homework-project-in-house-using.jpg?s=612x612&w=0&k=20&c=UqJtQbOTZBu6Yw-JB9jHOxpgOCoB5in1W02JuxYlibY=" alt="Resume Illustration" />
         </div>
@@ -48,8 +47,8 @@ export const Landing = () => {
         
 
         {/* About Section */}
-      <section id="about" className="about-section">
-        <div className="about-container">
+      <section id="about" className={styles.aboutSection}>
+        <div className={styles.aboutContainer}>
           <h2>About Lang Quiz</h2>
           <p>
             Lang Quiz is an interactive platform designed to help you master programming languages through engaging quizzes and challenges.
@@ -65,8 +64,8 @@ export const Landing = () => {
       </section>
     </main>
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-container">
+      <footer className={styles.footer}>
+        <div className={styles.footerContainer}>
           <span>&copy; {new Date().getFullYear()} Lang Quiz. All rights reserved.</span>
           <nav>
             <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
