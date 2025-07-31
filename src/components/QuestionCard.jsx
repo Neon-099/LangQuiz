@@ -1,17 +1,10 @@
 import { Link } from "react-router-dom"
 
-export const QuestionCards = ( {question, OnAnswer, onQuit, total} ) => {
+export const QuestionCards = ( {question, OnAnswer} ) => {
 
     
     return (
         <div className='mt-8 border-none bg-white shadow-md rounded-lg p-10 '>
-            <div className="flex justify-between items-center mb-4">
-                 <p>Question: {question.id + 1}/{total} </p>
-                 <button 
-                  onClick={onQuit}
-                  className="text-red-500 hover:text-red-400">Quit</button>
-            </div>
-
             <h1 className='text-xl font-semibold py-3 text'>{question.question}</h1>
             <ul className='mt-4 space-y-2'>
                 {question.options.map((option, index) => (

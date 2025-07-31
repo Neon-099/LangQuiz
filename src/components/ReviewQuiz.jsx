@@ -1,4 +1,4 @@
-export const ReviewQuiz = ( {answers, onReset} ) => {
+export const ReviewQuiz = ( {answers} ) => {
     return (
         <div>
             <h2 className="text-xl font-bold mb-4">Review Mode</h2>
@@ -11,20 +11,17 @@ export const ReviewQuiz = ( {answers, onReset} ) => {
                     <p>
                         Your Answer: {""}
                         <span className={a.isCorrect ? "text-green-600" : "text-red-600"}>
-                            {a.selected}
+                            {a.choices}
                         </span>
                     </p>
                     {/*THERES A TEMP VAR THERE(isCorrect, correctAnswer)*/}
                     {!a.isCorrect && (
                         <p className="text-blue-600">
-                            Correct answer: {a.correctAnswer}
+                            Correct answer: {a.choices}
                         </p>
                     )}
                 </div>
             ))}
-            <button className="mt-4 bg-blue-400 text-white px-4 py-2 rounded" onClick={onReset}>
-                Restart
-            </button>
         </div>
     )
 }
