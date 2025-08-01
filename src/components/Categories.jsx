@@ -1,8 +1,4 @@
-import cSharp from '../assets/cSharp.png'
-import html from '../assets/html.png'
-import python from '../assets/python.png'
-import js from '../assets/js.png'
-import jsReact from '../assets/jsReact.png'
+import {cSharp, html, python, js, jsReact} from '../assets';
 
 export const CategorySection = () => {
     return (
